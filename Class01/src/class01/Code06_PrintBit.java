@@ -17,7 +17,11 @@ public class Code06_PrintBit {
         //32位
         int num =83928328;
 
-        print(num);
+        print(-1);
+
+        int c =5;
+        int d =-c;
+
 
     }
 
