@@ -38,6 +38,17 @@ public class Code07_SelectionSort {
             }
         }
 
+        public static void insertSort(int[] arr){
+            if(arr == null || arr.length < 2){
+                return;
+            }
+            for(int i=1;i<arr.length;i++){
+                for(int j=i-1;j>=0 && arr[j] > arr[j+1];j--){
+                    swap(arr,j,j+1);
+                }
+            }
+        }
+
 
         public static void swap(int[] arr,int i,int j){
             if(i == j){
@@ -58,10 +69,35 @@ public class Code07_SelectionSort {
             System.out.println();
         }
 
+
         public static void main(String[] args){
             int[] arr = {3,2,1,4,5};
             printArray(arr);
             bubbleSort(arr);
             printArray(arr);
         }
+}
+
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        if(nums==null ||nums.length==0){
+            return 0;
+        }
+
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==target){
+                return nums[i];
+            }else{
+
+                Code07_SelectionSort.insertSort(nums);
+                for (int j=0;j<nums.length;j++){
+                    if(target>nums[j] && target<nums[j+1]){
+                        return j;
+                    }
+                }
+
+            }
+        }
+        return target;
+    }
 }
