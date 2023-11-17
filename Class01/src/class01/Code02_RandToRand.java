@@ -54,4 +54,30 @@ public class Code02_RandToRand {
         } while(ans == 3);
         return ans < 3 ? 0 : 1;
     }
+
+    //得到000 ~111 做到等概率
+    public static int f3(){
+        int ans = 0;
+        do{
+            ans = 0;
+            for(int i=0;i<3;i++){
+                ans |= f2() << i;
+            }
+        } while(ans == 7);
+        return ans;
+    }
+
+    // 如果 x会以固定概率返回0和1，但是x是一个黑盒，不能改
+    public static int x(){
+        return Math.random() < 0.84 ? 0 : 1;
+    }
+
+    //等概率返回0和1
+    public static int y(){
+        int ans = 0;
+        do{
+            ans = x();  // 0.84概率是0   0.16概率是1
+        } while (ans == x());
+        return ans;   // 等概率返回  0和1， 只能第一次 是0 第二次是 1， 或者第一次是1 第二次是0 两种情况
+    }
 }
