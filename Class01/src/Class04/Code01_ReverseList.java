@@ -37,4 +37,20 @@ public class Code01_ReverseList {
         }
         return pre;
     }
+
+    public static DoubleNode reverseList(DoubleNode head){
+        DoubleNode pre = null;
+        DoubleNode next = null;
+        while(head != null){
+            next = head.next; // 保存下一个节点
+            head.next = pre;  // 当前节点指向前一个节点
+            head.last = next; // 当前节点指向后一个节点
+            pre = head;       // pre指向当前节点
+            head = next;      // head指向下一个节点
+        }
+        return pre;
+    }
+
+    
+
 }
