@@ -61,4 +61,42 @@ public class Code02_LinkedListToQueueAndStack {
         }
     }
 
+    public static class MyStack<V>{
+        private Node<V> head;
+        private int size;
+        public MyStack(){
+            head = null;
+            size = 0;
+        }
+        public boolean isEmpty(){
+            return size == 0;
+        }
+        public int size(){
+            return size;
+        }
+        public void push(V value){  //进栈
+            Node<V> cur = new Node<>(value);
+            if (head != null) {
+                cur.next = head;
+            }
+            head = cur;
+            size++;
+        }
+
+        public V pop(){  //出栈
+            V ans = null;
+            if(head != null){
+                ans = head.value;
+                head = head.next;
+                size--;
+            }
+            return ans;
+        }
+
+        public V peek(){  // 查看栈顶元素
+            return head == null ? null : head.value;
+        }
+
+    }
+
 }
