@@ -18,5 +18,6 @@ public class Code01_PreSum {
         public int rangeSum(int L,int R){
             return L == 0 ? preSum[R] : preSum[R] - preSum[L-1];
         }
+
     }
 }
