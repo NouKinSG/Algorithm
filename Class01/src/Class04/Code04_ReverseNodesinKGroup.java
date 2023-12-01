@@ -33,20 +33,27 @@ public class Code04_ReverseNodesinKGroup {
         start.next = end;
     }
 
-//    public static ListNode reverseKGroup(ListNode head,int k){
-//        ListNode start = head;
-//        ListNode end = getKGroupEnd(start,k);
-//        if(end == null){
-//            return head;
-//        }
-//        head = end;
-//        reverse(start,end);
-//        ListNode lastEnd = start;
-//        while(lastEnd.next != null){
-//
-//        }
-//        return head;
-//    }
+    public static ListNode reverseKGroup(ListNode head,int k){
+        ListNode start = head;
+        ListNode end = getKGroupEnd(start,k);
+        if(end == null){
+            return head;
+        }
+        head = end;
+        reverse(start,end);
+        ListNode lastEnd = start;
+        while(lastEnd.next != null){
+            start = lastEnd.next;
+            end = getKGroupEnd(start,k);
+            if(end == null){
+                return head;
+            }
+            reverse(start,end);
+            lastEnd.next = end;
+            lastEnd = start;
+        }
+        return head;
+    }
 
 
 
