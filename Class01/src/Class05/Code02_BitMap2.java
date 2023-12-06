@@ -25,9 +25,5 @@ public class Code02_BitMap2 {
         private boolean contains(int num){
             return (bits[num >> 6] & (1L << (num & 63))) != 0;
         }
-
-
     }
-
-
 }
