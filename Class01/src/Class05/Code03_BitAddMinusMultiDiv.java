@@ -45,6 +45,18 @@ public class Code03_BitAddMinusMultiDiv {
 
     public static int Div(int a,int b){
 
+//        int x = isNeg(a) ? negNum(a) : a;
+//        int y = isNeg(b) ? negNum(b) :b;
+//
+//        int ans = 0;
+//        int discuss = minus(x,y);
+//        while(discuss >= 0){
+//            ans = add(ans,1);
+//            discuss = minus(discuss,y);
+//        }
+//        return isNeg(a) ^ isNeg(b) ? negNum(ans) : ans;
+
+
         int x = isNeg(a) ? negNum(a) : a;
         int y = isNeg(b) ? negNum(b) :b;
         int res = 0;
@@ -55,6 +67,31 @@ public class Code03_BitAddMinusMultiDiv {
             }
         }
         return isNeg(a) ^ isNeg(b) ? negNum(res) : res;
+
+    }
+
+    public static int divide(int a, int b) {
+        if (a == Integer.MIN_VALUE && b == Integer.MIN_VALUE) {
+            return 1;
+        } else if (b == Integer.MIN_VALUE) {
+            return 0;
+        } else if (a == Integer.MIN_VALUE) {
+            if (b == negNum(1)) {
+                return Integer.MAX_VALUE;
+            } else {
+                int c = Div(add(a, 1), b);
+                return add(c, Div(minus(a, multi(c, b)), b));
+            }
+        } else {
+            return Div(a, b);
+        }
+    }
+
+
+    public static void main(String[] args) {
+        int a = 100;
+        int b = 3;
+        System.out.println(Div(a,-b));
     }
 
 }
