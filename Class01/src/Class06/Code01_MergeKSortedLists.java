@@ -27,9 +27,9 @@ public class Code01_MergeKSortedLists {
 
         // 创建小根堆
         PriorityQueue<ListNode> heap = new PriorityQueue<>(new ListNodeComparator());
-        for(int i = 0; i < lists.length;i++){
-            if(lists[i] != null){
-                heap.add(lists[i]);
+        for (ListNode list : lists) {
+            if (list != null) {
+                heap.add(list);
             }
         }
 
@@ -57,9 +57,5 @@ public class Code01_MergeKSortedLists {
         }
         return head;
     }
-
-
-
-
 
 }
