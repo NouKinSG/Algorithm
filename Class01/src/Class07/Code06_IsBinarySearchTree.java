@@ -48,20 +48,16 @@ public class Code06_IsBinarySearchTree {
             min = Math.min(rightinfo.min,min);
         }
 
-        boolean isBST = true;
-        if(leftinfo != null && !leftinfo.isBST){
-            isBST = false;
-        }
-        if(rightinfo != null && !rightinfo.isBST){
-            isBST = false;
-        }
+        boolean isBST = false;
 
+        boolean leftisBST = leftinfo == null ? true : leftinfo.isBST;
+        boolean rightisBST = rightinfo == null ? true : rightinfo.isBST;
         // left Max < x       right min > x
         boolean leftMaxlessX = (leftinfo == null) ? true : (leftinfo.max < x.val);
         boolean rightMinlessX = (rightinfo == null) ? true :(rightinfo.min > x.val);
 
-        if(!leftMaxlessX || !rightMinlessX){
-            isBST =false;
+        if( leftisBST && rightisBST && leftMaxlessX && rightMinlessX){
+            isBST = true;
         }
         return new Info(isBST,max,min);
     }
