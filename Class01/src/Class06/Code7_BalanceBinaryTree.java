@@ -36,7 +36,7 @@ public class Code7_BalanceBinaryTree {
         }
         Info Linfo = process(x.left);
         Info Rinfo = process(x.right);
-        int height =Math.max(Linfo.height,Rinfo.height) + 1;
+        int height = Math.max(Linfo.height,Rinfo.height) + 1;
         boolean isBalanced = Linfo.isBalanced && Rinfo.isBalanced && Math.abs(Linfo.height - Rinfo.height) < 2;
 
         return new Info(isBalanced,height);
